@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
@@ -31,7 +31,25 @@ test("form shows success message on submit with form details", async () => {
 
     screen.debug();
 
-    const Checkout = screen.findByText(/Checkout/i)
+    await waitFor(() => {
+        const name = screen.getByText(/sofia/i)
+        expect(name).toBeInTheDocument();
+
+        const lastName = screen.getByText(/luna/i)
+        expect(lastName).toBeTruthy();
+
+        const address = screen.getByText(/12 Main ST/i)
+        expect(address).toBeTruthy();
+
+        const city = screen.getByText(/New York City/i)
+        expect(city).toBeTruthy();
+
+        const state = screen.getByText(/New York/i)
+        expect(state).toBeTruthy();
+
+        const zip = screen.getByText(/111002/i)
+        expect(zip).toBeTruthy();
+    })
 
 
 });
