@@ -23,7 +23,7 @@ test("form shows success message on submit with form details", async () => {
     fireEvent.change(lastNameInput, {target:{name:'lastName', value: 'Luna'}})
     fireEvent.change(addressInput, {target:{name:'address', value: '12 Main ST'}})
     fireEvent.change(cityInput, {target:{name:'city', value: 'New York City'}})
-    fireEvent.change(stateInput, {target:{name:'state', value: 'state'}})
+    fireEvent.change(stateInput, {target:{name:'state', value: 'New York'}})
     fireEvent.change(zipInput, {target:{name:'zip', value: '111002'}})
 
     fireEvent.click(checkoutButton);
