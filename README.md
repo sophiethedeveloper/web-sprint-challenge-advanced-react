@@ -29,14 +29,49 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain how to build stateful class components.
+  1) create a class component extending React.Component
+  2) inside the class call constructor() and inside call super()
+  3) declare this.state and inside set up initial states
+  4) In the render part of your class, you can call the states whenever you need pieces of data to change. 
 
 2. Describe the different phases of the component lifecycle.
+React component lifecycle has three categories – Mounting, Updating and Unmounting.
+
+The Birth/Mounting Phase
+This is the phase when the component is being built out from the ground up. A few things are happening here:
+Whatever initial data you want access to will be defined on the constructor of this phase
+
+Your render method is invoked.
+componentDidMount gets called as well.
+Growth/Updating Phase
+In the Growth/Updating phase you're updating compnent data.
+
+setState can be used to change the component's state data, forcing a call to render.
+shouldComponentUpdate is a method one could use here to stop a component from calling render if necessary.
+Death/Un-mounting Phase
+Again, self-explanatory, but the unmounting phase includes removing the component from the screen.
+
+Component is removed from the screen.
+componentWillUnmount is called and can be used for any clean up you may need to do.
+
 
 3. Demonstrate an understanding of class component lifecycle methods.
+The componentDidMount() happens as soon as your component is mounted.
+The componentDidUpdate() happens as soon as the updating happens.
+The componentWillUnmount() happens just before the component unmounts and is destroyed.
+This is a good place to cleanup all the data.
+You cannot set state here.
 
 4. Define stateful logic.
+  Stateful logic is any code that uses state, but in the case of hooks I would define it as a behaviour created with the use of one or more hooks. 
 
 5. Describe how to test a React component with React Testing Library.
+  1) create a file in the following format: filename.test.js
+  2) import React from 'react'
+  3) import {render, screen, fireEvent} from "@testing-library/react";
+  4) import component file that you want to test
+  5) initialize a test rendering the component
+  6) initialize a second test using the AAA method (Arrange, Act, Assert)
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
